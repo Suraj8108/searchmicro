@@ -25,11 +25,13 @@ public class ISearchService implements SearchService{
 	@Autowired
 	private RestTemplate restTemplate;
 	
+	String bookUrl = "http://ec2-3-110-171-177.ap-south-1.compute.amazonaws.com:9900";
 	@Override
 	public List<FlightDetailsDto> getFlightDdetails(SearchInputDto searchInput) {
 		// TODO Auto-generated method stub
+		
 		List<FlightDetailsDto> bookableFlights = restTemplate
-				.exchange("http://localhost:9969/flightBooking/getSearchFlights", HttpMethod.GET, null, 
+				.exchange(bookUrl + "/flightBooking/getSearchFlights", HttpMethod.GET, null, 
 						new ParameterizedTypeReference<List<FlightDetailsDto>>() {
 						}).getBody();
 		
@@ -86,13 +88,13 @@ public class ISearchService implements SearchService{
 		
 		//Get all Flights that have departure Airport as user departure
 		Set<String> departureArrivalFlights = restTemplate
-				.exchange("http://localhost:9969/flightBooking/getSearchFlightsByDeparture/" + departureAirport,
+				.exchange(bookUrl + "/flightBooking/getSearchFlightsByDeparture/" + departureAirport,
 						HttpMethod.GET, null, 
 						new ParameterizedTypeReference<Set<String>>() {
 						}).getBody();
 		//Get all Flights that have arrival Airport as user arrival
 		Set<String> arrivalDepartureFlights = restTemplate
-				.exchange("http://localhost:9969/flightBooking/getSearchFlightsByArrival/" + arrivalAirport,
+				.exchange(bookUrl + "/flightBooking/getSearchFlightsByArrival/" + arrivalAirport,
 						HttpMethod.GET, null, 
 						new ParameterizedTypeReference<Set<String>>() {
 						}).getBody();
