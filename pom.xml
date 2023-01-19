@@ -60,5 +60,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>search-project</finalName>
 	</build>
 </project>
