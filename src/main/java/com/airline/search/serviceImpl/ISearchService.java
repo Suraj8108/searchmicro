@@ -26,6 +26,7 @@ public class ISearchService implements SearchService{
 	private RestTemplate restTemplate;
 	
 	String bookUrl = "http://ec2-3-110-171-177.ap-south-1.compute.amazonaws.com:9900";
+//	String bookUrl = "http://localhost:9969";
 	@Override
 	public List<FlightDetailsDto> getFlightDdetails(SearchInputDto searchInput) {
 		// TODO Auto-generated method stub

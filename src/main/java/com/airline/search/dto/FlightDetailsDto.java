@@ -8,7 +8,9 @@ import com.airline.search.model.Route;
 
 public class FlightDetailsDto {
 
-private int flightNo;
+	private int flightBookingId;
+	
+	private int flightNo;
 	
 	private Set<String> flightWeekDays;
 
@@ -30,11 +32,11 @@ private int flightNo;
 		super();
 	}
 
-	
-
-	public FlightDetailsDto(int flightNo, Set<String> flightWeekDays, Fare fare, OffsetDateTime departureDateTime,
-			OffsetDateTime arrivalDateTime, long totalTime, Route route, int busSeatAvailable, int ecoSeatAvailable) {
+	public FlightDetailsDto(int flightBookingId, int flightNo, Set<String> flightWeekDays, Fare fare,
+			OffsetDateTime departureDateTime, OffsetDateTime arrivalDateTime, long totalTime, Route route,
+			int busSeatAvailable, int ecoSeatAvailable) {
 		super();
+		this.flightBookingId = flightBookingId;
 		this.flightNo = flightNo;
 		this.flightWeekDays = flightWeekDays;
 		this.fare = fare;
@@ -46,7 +48,13 @@ private int flightNo;
 		this.ecoSeatAvailable = ecoSeatAvailable;
 	}
 
+	public int getFlightBookingId() {
+		return flightBookingId;
+	}
 
+	public void setFlightBookingId(int flightBookingId) {
+		this.flightBookingId = flightBookingId;
+	}
 
 	public int getFlightNo() {
 		return flightNo;
@@ -103,8 +111,6 @@ private int flightNo;
 	public void setRoute(Route route) {
 		this.route = route;
 	}
-
-
 
 	public int getBusSeatAvailable() {
 		return busSeatAvailable;
